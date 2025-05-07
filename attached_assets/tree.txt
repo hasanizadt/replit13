@@ -1,0 +1,410 @@
+├── 📄 .env 
+├── 📄 .gitignore 
+├── 📄 eslint.config.mjs 
+├── 📄 nest-cli.json 
+├── 📄 package-lock.json 
+├── 📄 package.json 
+├── 📄 README.md 
+├── 📁 prisma ===>  [prisma]
+│   ├── 📄 schema.prisma 
+│   └── 📁 seed ===>  [prisma\seed]
+│       ├── 📄seed.ts  
+├── 📁 src ===>  [src]
+│   ├── 📁 address ===>  [src\address]
+│   │   ├── 📄 address.module.ts 
+│   │   ├── 📄 address.resolver.ts 
+│   │   ├── 📄 address.service.ts 
+│   │   ├── 📁 dto ===>  [src\address\dto]
+│   │   │   ├── 📄 address.dto.ts 
+│   │   │   └── 📄 address.input.ts 
+│   │   ├── 📁 entities ===>  [src\address\entities]
+│   │   │   └── 📄 address.entity.ts 
+│   │   └── 📁 models ===>  [src\address\models]
+│   │       └── 📄 address.model.ts 
+│   ├── 📁 analytics ===>  [src\analytics]
+│   │   ├── 📄 analytics.module.ts 
+│   │   ├── 📄 analytics.resolver.ts 
+│   │   ├── 📄 analytics.service.ts 
+│   │   ├── 📁 entities ===>  [src\analytics\entities]
+│   │   │   └── 📄 analytics.entity.ts 
+│   │   ├── 📁 models ===>  [src\analytics\models]
+│   │   │   ├── 📄 dashboard.model.ts 
+│   │   │   ├── 📄 notification.model.ts 
+│   │   │   ├── 📄 order-analytics.model.ts 
+│   │   │   ├── 📄 product-analytics.model.ts 
+│   │   │   ├── 📄 recent-activity.model.ts 
+│   │   │   └── 📄 user-analytics.model.ts 
+│   │   └── 📄 notification.helper.ts 
+│   ├── 📄 app.controller.spec.ts 
+│   ├── 📄 app.controller.ts 
+│   ├── 📄 app.module.ts 
+│   ├── 📄 app.service.ts 
+│   ├── 📁 attributes ===>  [src\attributes]
+│   │   ├── 📄 attributes.module.ts 
+│   │   ├── 📄 attributes.resolver.ts 
+│   │   ├── 📄 attributes.service.ts 
+│   │   ├── 📁 dto ===>  [src\attributes\dto]
+│   │   │   ├── 📄 attribute-value.input.ts 
+│   │   │   ├── 📄 attribute.dto.ts 
+│   │   │   ├── 📄 attribute.input.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   └── 📄 search.input.ts 
+│   │   ├── 📁 entities ===>  [src\attributes\entities]
+│   │   │   └── 📄 attribute.entity.ts 
+│   │   └── 📁 models ===>  [src\attributes\models]
+│   │       ├── 📄 attribute-value.model.ts 
+│   │       ├── 📄 attribute.model.ts 
+│   │       └── 📄 pagination.result.ts 
+│   ├── 📁 auth ===>  [src\auth]
+│   │   ├── 📄 auth.guard.ts 
+│   │   ├── 📄 auth.module.ts 
+│   │   ├── 📄 auth.resolver.ts 
+│   │   ├── 📄 auth.service.ts 
+│   │   ├── 📁 decorator ===>  [src\auth\decorator]
+│   │   │   └── 📄 auth.decorator.ts 
+│   │   ├── 📁 dto ===>  [src\auth\dto]
+│   │   │   ├── 📄 auth-response.ts 
+│   │   │   ├── 📄 change-password.input.ts 
+│   │   │   ├── 📄 google-auth.dto.ts 
+│   │   │   ├── 📄 index.ts 
+│   │   │   ├── 📄 login.input.ts 
+│   │   │   ├── 📄 reset-password.input.ts 
+│   │   │   ├── 📄 two-factor-response.ts 
+│   │   │   ├── 📄 verify-otp.input.ts 
+│   │   │   └── 📄 verify-two-factor.input.ts 
+│   │   ├── 📁 enum ===>  [src\auth\enum]
+│   │   │   └── 📄 auth.enum.ts 
+│   │   ├── 📄 index.ts 
+│   │   ├── 📄 req-user.interface.ts 
+│   │   ├── 📄 role.enum.ts 
+│   │   ├── 📄 roles.decorator.ts 
+│   │   └── 📄 roles.guard.ts 
+│   ├── 📁 brand ===>  [src\brand]
+│   │   ├── 📄 brand.module.ts 
+│   │   ├── 📄 brand.resolver.ts 
+│   │   ├── 📄 brand.service.ts 
+│   │   ├── 📁 dto ===>  [src\brand\dto]
+│   │   │   ├── 📄 brand.dto.ts 
+│   │   │   ├── 📄 brand.input.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   └── 📄 search.input.ts 
+│   │   ├── 📁 entities ===>  [src\brand\entities]
+│   │   │   └── 📄 brand.entity.ts 
+│   │   └── 📁 models ===>  [src\brand\models]
+│   │       ├── 📄 brand.model.ts 
+│   │       └── 📄 pagination.result.ts 
+│   ├── 📁 cart ===>  [src\cart]
+│   │   ├── 📄 cart.module.ts 
+│   │   ├── 📄 cart.resolver.ts 
+│   │   ├── 📄 cart.service.ts 
+│   │   ├── 📁 dto ===>  [src\cart\dto]
+│   │   │   ├── 📄 cart-variation.input.ts 
+│   │   │   ├── 📄 cart.dto.ts 
+│   │   │   └── 📄 cart.input.ts 
+│   │   ├── 📁 entities ===>  [src\cart\entities]
+│   │   │   └── 📄 cart.entity.ts 
+│   │   └── 📁 models ===>  [src\cart\models]
+│   │       ├── 📄 cart-item.model.ts 
+│   │       ├── 📄 cart-variation.model.ts 
+│   │       └── 📄 cart.model.ts 
+│   ├── 📁 category ===>  [src\category]
+│   │   ├── 📄 category.module.ts 
+│   │   ├── 📄 category.resolver.ts 
+│   │   ├── 📄 category.service.ts 
+│   │   ├── 📁 dto ===>  [src\category\dto]
+│   │   │   ├── 📄 category.dto.ts 
+│   │   │   ├── 📄 category.input.ts 
+│   │   │   ├── 📄 main-category.dto.ts 
+│   │   │   ├── 📄 main-category.input.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   ├── 📄 search.input.ts 
+│   │   │   ├── 📄 sub-category.dto.ts 
+│   │   │   └── 📄 sub-category.input.ts 
+│   │   ├── 📁 entities ===>  [src\category\entities]
+│   │   │   └── 📄 category.entity.ts 
+│   │   └── 📁 models ===>  [src\category\models]
+│   │       ├── 📄 category.model.ts 
+│   │       ├── 📄 main-category.model.ts 
+│   │       ├── 📄 pagination.result.ts 
+│   │       └── 📄 sub-category.model.ts 
+│   ├── 📁 config ===>  [src\config]
+│   │   └── 📄 app.config.ts 
+│   ├── 📁 coupon ===>  [src\coupon]
+│   │   ├── 📄 coupon.module.ts 
+│   │   ├── 📄 coupon.resolver.ts 
+│   │   ├── 📄 coupon.service.ts 
+│   │   ├── 📁 dto ===>  [src\coupon\dto]
+│   │   │   ├── 📄 apply.dto.ts 
+│   │   │   ├── 📄 coupon.dto.ts 
+│   │   │   └── 📄 redeem.dto.ts 
+│   │   ├── 📁 entities ===>  [src\coupon\entities]
+│   │   │   ├── 📄 apply.entity.ts 
+│   │   │   ├── 📄 coupon-admin.entity.ts 
+│   │   │   ├── 📄 coupon-user.entity.ts 
+│   │   │   └── 📄 redeem.entity.ts 
+│   │   └── 📁 model ===>  [src\coupon\model]
+│   │       ├── 📄 coupon.entity.ts 
+│   │       └── 📄 used.entity.ts 
+│   ├── 📁 flash ===>  [src\flash]
+│   │   ├── 📁 dto ===>  [src\flash\dto]
+│   │   │   └── 📄 flash.dto.ts 
+│   │   ├── 📁 entities ===>  [src\flash\entities]
+│   │   │   └── 📄 flash.entity.ts 
+│   │   ├── 📄 flash.module.ts 
+│   │   ├── 📄 flash.resolver.ts 
+│   │   ├── 📄 flash.service.ts 
+│   │   └── 📁 model ===>  [src\flash\model]
+│   │       └── 📄 flash.entity.ts 
+│   ├── 📁 helper ===>  [src\helper]
+│   │   ├── 📄 orderId.helper.ts 
+│   │   └── 📄 sms.helper.ts 
+│   ├── 📁 homepage ===>  [src\homepage]
+│   │   ├── 📁 dto ===>  [src\homepage\dto]
+│   │   │   ├── 📄 banner.dto.ts 
+│   │   │   └── 📄 section.dto.ts 
+│   │   ├── 📁 entities ===>  [src\homepage\entities]
+│   │   │   ├── 📄 banner.entity.ts 
+│   │   │   ├── 📄 section-product.entity.ts 
+│   │   │   └── 📄 section.entity.ts 
+│   │   ├── 📄 home.module.ts 
+│   │   ├── 📄 home.resolver.ts 
+│   │   ├── 📄 home.service.ts 
+│   │   └── 📁 model ===>  [src\homepage\model]
+│   │       ├── 📄 banner-one.entity.ts 
+│   │       ├── 📄 banner-two.entity.ts 
+│   │       ├── 📄 section-product.entity.ts 
+│   │       └── 📄 section.entity.ts 
+│   ├── 📄 main.ts 
+│   ├── 📁 message ===>  [src\message]
+│   │   ├── 📁 dto ===>  [src\message\dto]
+│   │   │   ├── 📄 create-message.input.ts 
+│   │   │   ├── 📄 message.dto.ts 
+│   │   │   ├── 📄 reply-message.input.ts 
+│   │   │   ├── 📄 search-message.input.ts 
+│   │   │   └── 📄 search.dto.ts 
+│   │   ├── 📁 entities ===>  [src\message\entities]
+│   │   │   └── 📄 message.entity.ts 
+│   │   ├── 📄 message.module.ts 
+│   │   ├── 📄 message.resolver.ts 
+│   │   ├── 📄 message.service.ts 
+│   │   ├── 📁 model ===>  [src\message\model]
+│   │   │   └── 📄 message.entity.ts 
+│   │   └── 📁 models ===>  [src\message\models]
+│   │       ├── 📄 message-reply.model.ts 
+│   │       ├── 📄 message.model.ts 
+│   │       └── 📄 pagination.result.ts 
+│   ├── 📁 order ===>  [src\order]
+│   │   ├── 📁 dto ===>  [src\order\dto]
+│   │   │   ├── 📄 create-order.input.ts 
+│   │   │   ├── 📄 order-item.input.ts 
+│   │   │   ├── 📄 order.dto.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   └── 📄 update-order.input.ts 
+│   │   ├── 📁 entities ===>  [src\order\entities]
+│   │   │   └── 📄 order.entity.ts 
+│   │   ├── 📁 enum ===>  [src\order\enum]
+│   │   │   └── 📄 order-status.enum.ts 
+│   │   ├── 📁 models ===>  [src\order\models]
+│   │   │   ├── 📄 order-item.model.ts 
+│   │   │   └── 📄 order.model.ts 
+│   │   ├── 📄 order.module.ts 
+│   │   ├── 📄 order.resolver.ts 
+│   │   ├── 📄 order.service.migrated.ts 
+│   │   └── 📄 order.service.ts 
+│   ├── 📁 platform ===>  [src\platform]
+│   │   ├── 📁 dto ===>  [src\platform\dto]
+│   │   │   └── 📄 platform.dto.ts 
+│   │   ├── 📁 entities ===>  [src\platform\entities]
+│   │   │   └── 📄 platform.entity.ts 
+│   │   ├── 📁 model ===>  [src\platform\model]
+│   │   │   └── 📄 platform.entity.ts 
+│   │   ├── 📄 platform.module.ts 
+│   │   ├── 📄 platform.resolver.ts 
+│   │   └── 📄 platform.service.ts 
+│   ├── 📁 points ===>  [src\points]
+│   │   ├── 📁 entities ===>  [src\points\entities]
+│   │   │   ├── 📄 points.entity.ts 
+│   │   │   └── 📄 user-points.entity.ts 
+│   │   ├── 📁 model ===>  [src\points\model]
+│   │   │   ├── 📄 points.entity.ts 
+│   │   │   └── 📄 user-point.entity.ts 
+│   │   ├── 📄 points.module.ts 
+│   │   ├── 📄 points.resolver.ts 
+│   │   └── 📄 points.service.ts 
+│   ├── 📁 preorder ===>  [src\preorder]
+│   │   ├── 📁 dto ===>  [src\preorder\dto]
+│   │   │   ├── 📄 preorder.dto.ts 
+│   │   │   └── 📄 update.dto.ts 
+│   │   ├── 📁 entities ===>  [src\preorder\entities]
+│   │   │   └── 📄 preorder.entity.ts 
+│   │   ├── 📁 model ===>  [src\preorder\model]
+│   │   │   ├── 📄 preorder.schema.ts 
+│   │   │   └── 📄 preorder.schema.ts.new 
+│   │   ├── 📄 preorder.module.ts 
+│   │   ├── 📄 preorder.resolver.ts 
+│   │   ├── 📄 preorder.service.ts 
+│   │   └── 📄 preorder.service.ts.new 
+│   ├── 📁 prisma ===>  [src\prisma]
+│   │   ├── 📄 prisma.d.ts 
+│   │   ├── 📄 prisma.module.ts 
+│   │   └── 📄 prisma.service.ts 
+│   ├── 📁 product ===>  [src\product]
+│   │   ├── 📁 dto ===>  [src\product\dto]
+│   │   │   ├── 📄 create-product.input.ts 
+│   │   │   ├── 📄 product-attribute.input.ts 
+│   │   │   ├── 📄 product-image.input.ts 
+│   │   │   ├── 📄 product-status.enum.ts 
+│   │   │   ├── 📄 product.dto.ts 
+│   │   │   ├── 📄 search-product.input.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   └── 📄 update-product.input.ts 
+│   │   ├── 📁 entities ===>  [src\product\entities]
+│   │   │   └── 📄 product.entity.ts 
+│   │   ├── 📁 models ===>  [src\product\models]
+│   │   │   ├── 📄 product-attribute.model.ts 
+│   │   │   ├── 📄 product-image.model.ts 
+│   │   │   ├── 📄 product-pagination.result.ts 
+│   │   │   └── 📄 product.model.ts 
+│   │   ├── 📄 product.module.ts 
+│   │   ├── 📄 product.resolver.ts 
+│   │   └── 📄 product.service.ts 
+│   ├── 📁 refund ===>  [src\refund]
+│   │   ├── 📁 dto ===>  [src\refund\dto]
+│   │   │   ├── 📄 refund.dto.ts 
+│   │   │   └── 📄 status.dto.ts 
+│   │   ├── 📁 entities ===>  [src\refund\entities]
+│   │   │   ├── 📄 refund.entity.ts 
+│   │   │   └── 📄 refundable.entity.ts 
+│   │   ├── 📁 model ===>  [src\refund\model]
+│   │   │   ├── 📄 refund.entity.ts 
+│   │   │   └── 📄 refundable.entity.ts 
+│   │   ├── 📄 refund.module.ts 
+│   │   ├── 📄 refund.resolver.ts 
+│   │   └── 📄 refund.service.ts 
+│   ├── 📁 reviews ===>  [src\reviews]
+│   │   ├── 📁 dto ===>  [src\reviews\dto]
+│   │   │   ├── 📄 check.dto.ts 
+│   │   │   ├── 📄 reply.dto.ts 
+│   │   │   └── 📄 review.dto.ts 
+│   │   ├── 📁 entities ===>  [src\reviews\entities]
+│   │   │   └── 📄 reviews.entity.ts 
+│   │   ├── 📁 model ===>  [src\reviews\model]
+│   │   │   └── 📄 reviews.entity.ts 
+│   │   ├── 📁 models ===>  [src\reviews\models]
+│   │   │   └── 📄 review.model.ts 
+│   │   ├── 📄 review.module.ts 
+│   │   ├── 📄 review.resolver.ts 
+│   │   └── 📄 review.service.ts 
+│   ├── 📄 schema.gql 
+│   ├── 📁 seller ===>  [src\seller]
+│   │   ├── 📁 dto ===>  [src\seller\dto]
+│   │   │   ├── 📄 bank.dto.ts 
+│   │   │   ├── 📄 seller.dto.ts 
+│   │   │   ├── 📄 update.dto.ts 
+│   │   │   └── 📄 verify.dto.ts 
+│   │   ├── 📁 entities ===>  [src\seller\entities]
+│   │   │   └── 📄 seller.entity.ts 
+│   │   ├── 📁 model ===>  [src\seller\model]
+│   │   │   ├── 📄 bank.entity.ts 
+│   │   │   └── 📄 seller.entity.ts 
+│   │   ├── 📁 models ===>  [src\seller\models]
+│   │   │   ├── 📄 bank.model.ts 
+│   │   │   └── 📄 seller.model.ts 
+│   │   ├── 📄 seller.module.ts 
+│   │   ├── 📄 seller.resolver.ts 
+│   │   └── 📄 seller.service.ts 
+│   ├── 📁 settings ===>  [src\settings]
+│   │   ├── 📁 dto ===>  [src\settings\dto]
+│   │   │   └── 📄 settings.dto.ts 
+│   │   ├── 📁 entities ===>  [src\settings\entities]
+│   │   │   └── 📄 setting.entity.ts 
+│   │   ├── 📁 model ===>  [src\settings\model]
+│   │   │   └── 📄 setting.entity.ts 
+│   │   ├── 📄 settings.module.ts 
+│   │   ├── 📄 settings.resolver.ts 
+│   │   └── 📄 settings.service.ts 
+│   ├── 📁 shared ===>  [src\shared]
+│   │   └── 📁 dto ===>  [src\shared\dto]
+│   │       ├── 📄 search-message.input.ts 
+│   │       └── 📄 search.input.ts 
+│   ├── 📁 shipping ===>  [src\shipping]
+│   │   ├── 📁 dto ===>  [src\shipping\dto]
+│   │   │   └── 📄 shipping.dto.ts 
+│   │   ├── 📁 entities ===>  [src\shipping\entities]
+│   │   │   └── 📄 shipping.entity.ts 
+│   │   ├── 📁 model ===>  [src\shipping\model]
+│   │   │   └── 📄 shipping.entity.ts 
+│   │   ├── 📄 shipping.module.ts 
+│   │   ├── 📄 shipping.resolver.ts 
+│   │   ├── 📄 shipping.service.migrated.ts 
+│   │   └── 📄 shipping.service.ts 
+│   ├── 📁 tag ===>  [src\tag]
+│   │   ├── 📁 dto ===>  [src\tag\dto]
+│   │   │   └── 📄 tag.dto.ts 
+│   │   ├── 📁 entities ===>  [src\tag\entities]
+│   │   │   └── 📄 tag.entity.ts 
+│   │   ├── 📁 model ===>  [src\tag\model]
+│   │   │   └── 📄 tag.entity.ts 
+│   │   ├── 📄 tag.module.ts 
+│   │   ├── 📄 tag.resolver.ts 
+│   │   └── 📄 tag.service.ts 
+│   ├── 📁 user ===>  [src\user]
+│   │   ├── 📁 dto ===>  [src\user\dto]
+│   │   │   ├── 📄 admin.dto.ts 
+│   │   │   ├── 📄 change-password.dto.ts 
+│   │   │   ├── 📄 create-user.input.ts 
+│   │   │   ├── 📄 facebook.dto.ts 
+│   │   │   ├── 📄 forget-password.dto.ts 
+│   │   │   ├── 📄 google.dto.ts 
+│   │   │   ├── 📄 login.dto.ts 
+│   │   │   ├── 📄 phone.dto.ts 
+│   │   │   ├── 📄 reset-password.dto.ts 
+│   │   │   ├── 📄 search.dto.ts 
+│   │   │   ├── 📄 signup.dto.ts 
+│   │   │   ├── 📄 update-user.input.ts 
+│   │   │   ├── 📄 update.dto.ts 
+│   │   │   └── 📄 verify-phone.dto.ts 
+│   │   ├── 📁 entities ===>  [src\user\entities]
+│   │   │   ├── 📄 meta.entity.ts 
+│   │   │   ├── 📄 success.entity.ts 
+│   │   │   └── 📄 user.entity.ts 
+│   │   ├── 📁 models ===>  [src\user\models]
+│   │   │   └── 📄 user.model.ts 
+│   │   ├── 📁 types ===>  [src\user\types]
+│   │   │   └── 📄 req-user.type.ts 
+│   │   ├── 📄 user.module.ts 
+│   │   ├── 📄 user.resolver.ts 
+│   │   └── 📄 user.service.ts 
+│   ├── 📁 wishlist ===>  [src\wishlist]
+│   │   ├── 📁 dto ===>  [src\wishlist\dto]
+│   │   │   └── 📄 wishlist.dto.ts 
+│   │   ├── 📁 entities ===>  [src\wishlist\entities]
+│   │   │   ├── 📄 check-wishlist.entity.ts 
+│   │   │   └── 📄 wishlist.entity.ts 
+│   │   ├── 📁 model ===>  [src\wishlist\model]
+│   │   │   └── 📄 wishlist.entity.ts 
+│   │   ├── 📄 wishlist.module.ts 
+│   │   ├── 📄 wishlist.resolver.ts 
+│   │   └── 📄 wishlist.service.ts 
+│   └── 📁 withdraw ===>  [src\withdraw]
+│       ├── 📁 dto ===>  [src\withdraw\dto]
+│       │   ├── 📄 payment.dto.migrated.ts 
+│       │   ├── 📄 payment.dto.ts 
+│       │   └── 📄 payment.dto.updated.ts 
+│       ├── 📁 entities ===>  [src\withdraw\entities]
+│       │   ├── 📄 income-statics.entity.ts 
+│       │   ├── 📄 income.entities.ts 
+│       │   └── 📄 withdraw.entities.ts 
+│       ├── 📁 model ===>  [src\withdraw\model]
+│       │   ├── 📄 income.entity.ts 
+│       │   └── 📄 withdraw.entity.ts 
+│       ├── 📄 withdraw.module.ts 
+│       ├── 📄 withdraw.resolver.ts 
+│       ├── 📄 withdraw.service.migrated.ts 
+│       ├── 📄 withdraw.service.ts 
+│       └── 📄 withdraw.service.updated.ts 
+├── 📁 temp ===>  [temp]
+│   ├── 📄 errors.txt 
+│   └── 📄 orders.txt 
+├── 📄 tsconfig.build.json 
+└── 📄 tsconfig.json 

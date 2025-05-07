@@ -1,0 +1,9 @@
+{
+  "welcome": "Welcome to our e-commerce platform",
+  "errors": {
+    "notFound": "Resource not found",
+    "unauthorized": "Unauthorized access",
+    "forbidden": "Access forbidden",
+    "validation": "Validation error"
+  }
+}

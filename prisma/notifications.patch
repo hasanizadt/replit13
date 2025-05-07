@@ -1,0 +1,18 @@
+model notifications {
+  id        String           @id
+  userId    String
+  title     String
+  message   String
+  type      NotificationType @default(SYSTEM)
+  read      Boolean          @default(false)
+  link      String?
+  imageUrl  String?
+  metadata  String?          // JSON string for additional data
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  users     users            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([type])
+  @@index([read])
+}

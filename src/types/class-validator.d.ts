@@ -1,0 +1,54 @@
+declare module 'class-validator' {
+  export function IsString(validationOptions?: any): PropertyDecorator;
+  export function IsOptional(validationOptions?: any): PropertyDecorator;
+  export function IsInt(validationOptions?: any): PropertyDecorator;
+  export function Min(min: number, validationOptions?: any): PropertyDecorator;
+  export function Max(max: number, validationOptions?: any): PropertyDecorator;
+  export function IsEnum(entity: object, validationOptions?: any): PropertyDecorator;
+  export function IsBoolean(validationOptions?: any): PropertyDecorator;
+  export function IsNumber(options?: any, validationOptions?: any): PropertyDecorator;
+  export function IsDate(validationOptions?: any): PropertyDecorator;
+  export function IsDateString(validationOptions?: any): PropertyDecorator;
+  export function IsEmail(validationOptions?: any): PropertyDecorator;
+  export function IsUUID(version?: string, validationOptions?: any): PropertyDecorator;
+  export function IsNotEmpty(validationOptions?: any): PropertyDecorator;
+  export function Length(min: number, max?: number, validationOptions?: any): PropertyDecorator;
+  export function MinLength(min: number, validationOptions?: any): PropertyDecorator;
+  export function MaxLength(max: number, validationOptions?: any): PropertyDecorator;
+  export function Matches(pattern: RegExp, validationOptions?: any): PropertyDecorator;
+  export function IsUrl(validationOptions?: any): PropertyDecorator;
+  export function IsPositive(validationOptions?: any): PropertyDecorator;
+  export function IsNegative(validationOptions?: any): PropertyDecorator;
+  export function IsArray(validationOptions?: any): PropertyDecorator;
+  export function ArrayMinSize(min: number, validationOptions?: any): PropertyDecorator;
+  export function ArrayMaxSize(max: number, validationOptions?: any): PropertyDecorator;
+  export function IsAlpha(validationOptions?: any): PropertyDecorator;
+  export function IsAlphanumeric(validationOptions?: any): PropertyDecorator;
+  export function IsFQDN(validationOptions?: any): PropertyDecorator;
+  export function IsIP(version?: string, validationOptions?: any): PropertyDecorator;
+  export function IsObject(validationOptions?: any): PropertyDecorator;
+  export function ValidateNested(validationOptions?: any): PropertyDecorator;
+  export function Contains(seed: string, validationOptions?: any): PropertyDecorator;
+  export function Allow(validationOptions?: any): PropertyDecorator;
+  export function ValidateIf(condition: any, validationOptions?: any): PropertyDecorator;
+  
+  // Additional validators found in errors
+  export function IsIn(values: any[], validationOptions?: any): PropertyDecorator;
+  export function IsJSON(validationOptions?: any): PropertyDecorator;
+  export function ArrayContains(values: any[], validationOptions?: any): PropertyDecorator;
+  export function ArrayNotContains(values: any[], validationOptions?: any): PropertyDecorator;
+  export function ArrayNotEmpty(validationOptions?: any): PropertyDecorator;
+  export function ArrayUnique(validationOptions?: any): PropertyDecorator;
+  export function IsLatitude(validationOptions?: any): PropertyDecorator;
+  export function IsLongitude(validationOptions?: any): PropertyDecorator;
+  export function IsPostalCode(locale?: string, validationOptions?: any): PropertyDecorator;
+  export function IsMobilePhone(locale?: string, validationOptions?: any): PropertyDecorator;
+  export function IsPhoneNumber(locale?: string, validationOptions?: any): PropertyDecorator;
+  export function IsCreditCard(validationOptions?: any): PropertyDecorator;
+  export function IsCurrency(options?: any, validationOptions?: any): PropertyDecorator;
+  export function IsISBN(version?: string, validationOptions?: any): PropertyDecorator;
+  export function IsPort(validationOptions?: any): PropertyDecorator;
+  export function IsTimeZone(validationOptions?: any): PropertyDecorator;
+  export function IsISO8601(options?: any, validationOptions?: any): PropertyDecorator;
+  export function IsRFC3339(validationOptions?: any): PropertyDecorator;
+}

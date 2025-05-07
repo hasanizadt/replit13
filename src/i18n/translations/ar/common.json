@@ -1,0 +1,47 @@
+{
+  "welcome": "مرحباً بكم في منصة التجارة الإلكترونية",
+  "errors": {
+    "not_found": "لم يتم العثور على المورد",
+    "unauthorized": "غير مصرح لك بالوصول إلى هذا المورد",
+    "validation": {
+      "email": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+      "required": "هذا الحقل مطلوب",
+      "min_length": "الحد الأدنى للطول هو {length} أحرف",
+      "max_length": "الحد الأقصى للطول هو {length} أحرف"
+    }
+  },
+  "auth": {
+    "login_success": "تم تسجيل الدخول بنجاح",
+    "register_success": "تم التسجيل بنجاح",
+    "logout_success": "تم تسجيل الخروج بنجاح",
+    "password_reset": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
+    "password_change": "تم تغيير كلمة المرور بنجاح"
+  },
+  "orders": {
+    "created": "تم إنشاء الطلب بنجاح",
+    "updated": "تم تحديث الطلب بنجاح",
+    "cancelled": "تم إلغاء الطلب بنجاح",
+    "status": {
+      "pending": "قيد الانتظار",
+      "processing": "قيد المعالجة",
+      "shipped": "تم الشحن",
+      "delivered": "تم التوصيل",
+      "cancelled": "ملغى",
+      "refunded": "تم رد المبلغ"
+    }
+  },
+  "products": {
+    "added_to_cart": "تمت إضافة المنتج إلى سلة التسوق",
+    "removed_from_cart": "تمت إزالة المنتج من سلة التسوق",
+    "added_to_wishlist": "تمت إضافة المنتج إلى قائمة الرغبات",
+    "removed_from_wishlist": "تمت إزالة المنتج من قائمة الرغبات",
+    "out_of_stock": "المنتج غير متوفر في المخزون"
+  },
+  "notifications": {
+    "order_status_changed": "تم تغيير حالة طلبك إلى {status}",
+    "payment_successful": "تم الدفع بنجاح",
+    "payment_failed": "فشل الدفع",
+    "new_message": "لديك رسالة جديدة",
+    "price_drop": "انخفاض السعر على العنصر في قائمة رغباتك"
+  }
+}

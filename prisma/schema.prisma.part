@@ -1,0 +1,14 @@
+// Translation model for storing translations
+model Translation {
+  id            String   @id @default(uuid())
+  entityType    String   // The type of entity (product, category, etc.)
+  entityId      String   // The ID of the entity
+  field         String   // The field name (name, description, etc.)
+  language      String   // The language code (en, fa, ar, etc.)
+  value         String   // The translated value
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([entityType, entityId, field, language])
+  @@map("translations")
+}

@@ -1,0 +1,19 @@
+// Update the notifications model with new fields
+model notifications {
+  id        String   @id
+  userId    String
+  title     String
+  message   String
+  type      String
+  read      Boolean  @default(false)
+  link      String?
+  imageUrl  String?
+  metadata  String?   // Add JSON string for additional data
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     users    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([type])
+  @@index([read])
+}

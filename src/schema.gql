@@ -1,0 +1,1952 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AddToCartInput {
+  attributes: String
+  productId: String!
+  reserved: Int!
+  sellerId: String!
+}
+
+type Address {
+  address: String!
+  area: String!
+  city: String!
+  country: String!
+  createdAt: DateTime!
+  gender: String
+  id: ID!
+  isDefault: Boolean!
+  name: String!
+  phone: String!
+  postal: String
+  updatedAt: DateTime!
+  userId: String!
+}
+
+input AnalyticsQueryInput {
+  categoryId: String
+  chartType: ChartType = LINE
+  dateRange: DateRangeInput
+  limit: Int! = 5
+  period: TimePeriod!
+  productId: String
+}
+
+type ApiKey {
+  createdAt: DateTime!
+  expiresAt: DateTime
+  id: ID!
+  isActive: Boolean!
+
+  """The API key (only shown once when created)"""
+  key: String!
+  lastUsedAt: DateTime
+  name: String!
+  permissions: [String!]!
+  updatedAt: DateTime!
+  userId: String!
+}
+
+type ApiKeyPagination {
+  apiKeys: [ApiKey!]!
+  pageCount: Float!
+  totalCount: Float!
+}
+
+type ApiKeyWithSecret {
+  apiKey: ApiKey!
+
+  """Secret key, only shown once"""
+  secretKey: String!
+}
+
+type Attribute {
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  name: String!
+  updatedAt: DateTime!
+  values: [AttributeValue!]
+}
+
+type AttributeValue {
+  attributeId: String!
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+  value: String!
+}
+
+type AuthResponse {
+  token: String!
+  user: User!
+}
+
+type Bank {
+  accountNumber: String!
+  accountTitle: String!
+  bankName: String!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  routingNumber: String
+  seller: Seller!
+  sellerId: String!
+  updatedAt: DateTime!
+}
+
+type Brand {
+  createdAt: DateTime!
+  description: String
+  featured: Boolean!
+  id: String!
+  logo: String
+  name: String!
+  products: [Product!]
+  slug: String!
+  updatedAt: DateTime!
+  website: String
+}
+
+type BrandMeta {
+  currentPage: Int!
+  itemCount: Int!
+  itemsPerPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+"""Who canceled the order"""
+enum CancelBy {
+  ADMIN
+  USER
+}
+
+type Cart {
+  attributes: String
+  createdAt: DateTime!
+  id: String!
+  product: Product!
+  productId: String!
+  reserved: Int!
+  seller: Seller!
+  sellerId: String!
+  updatedAt: DateTime!
+  user: User!
+  userId: String!
+}
+
+type CartMeta {
+  currentPage: Int!
+  itemCount: Int!
+  itemsPerPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+type CartSummary {
+  discount: Float!
+  shipping: Float!
+  subtotal: Float!
+  tax: Float!
+  total: Float!
+  totalItems: Int!
+}
+
+type Category {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean!
+  name: String!
+  order: Float!
+  parent: Category
+  parentId: String
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String!
+  subcategories: [Category!]
+  updatedAt: DateTime!
+}
+
+"""Category performance analytics"""
+type CategoryAnalytics {
+  categoryId: String!
+  categoryName: String!
+  revenue: Float!
+  totalProducts: Int!
+  unitsSold: Int!
+}
+
+type CategoryMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+"""Chart type options for analytics"""
+enum ChartType {
+  BAR
+  LINE
+  PIE
+}
+
+input ClearCartInput {
+  confirm: Boolean! = true
+}
+
+type Coupon {
+  appliesTo: String
+  categoryId: String
+  code: String!
+  createdAt: DateTime!
+  createdBy: String!
+  description: String
+  discount: Float!
+  discountUnit: DiscountUnit!
+  expiresAt: DateTime!
+  id: String!
+  isActive: Boolean!
+  maximumDiscount: Float
+  minimumPurchase: Float
+  name: String!
+  productId: String
+  startDate: DateTime!
+  updatedAt: DateTime!
+  usageCount: Int!
+  usageLimit: Int
+  usedCoupons: [UsedCoupon!]
+  user: User
+}
+
+type CouponMeta {
+  currentPage: Int!
+  itemCount: Int!
+  itemsPerPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+type CouponPaginatedResponse {
+  meta: CouponMeta!
+  results: [Coupon!]!
+}
+
+type CouponUser {
+  code: String!
+  coupon: Coupon
+  couponId: String!
+  createdAt: DateTime!
+  discount: Float!
+  discountUnit: DiscountUnit!
+  id: ID!
+  points: Int!
+  updatedAt: DateTime!
+  usedAt: DateTime
+  user: User
+  userId: String!
+}
+
+type CouponUserMeta {
+  currentPage: Int!
+  itemCount: Int!
+  itemsPerPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+type CouponUserPaginatedResponse {
+  meta: CouponUserMeta!
+  results: [CouponUser!]!
+}
+
+type CouponVerificationResult {
+  coupon: Coupon
+  discount: Float
+  message: String
+  valid: Boolean!
+}
+
+input CreateAddressInput {
+  address: String!
+  area: String!
+  city: String!
+  country: String!
+  fullName: String
+  gender: String
+  isDefault: Boolean = false
+  name: String!
+  phone: String!
+  postal: String
+}
+
+input CreateApiKeyInput {
+  expiresAt: DateTime
+  name: String!
+  permissions: [String!]!
+}
+
+input CreateAttributeInput {
+  description: String
+  name: String!
+}
+
+input CreateAttributeValueInput {
+  attributeId: String!
+  value: String!
+}
+
+input CreateBrandInput {
+  description: String
+  isFeatured: Boolean = false
+  logo: String
+  name: String!
+  website: String
+}
+
+input CreateCategoryInput {
+  description: String
+  image: String
+  isActive: Boolean = true
+  mainCategoryId: String
+  name: String!
+  order: Float = 0
+  parentId: String
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input CreateCouponInput {
+  code: String!
+  discount: Float!
+  discountUnit: DiscountUnit!
+  expiresAt: DateTime!
+  minimumPurchase: Float
+  name: String!
+}
+
+input CreateCouponUserInput {
+  code: String!
+  discount: Float!
+  discountUnit: DiscountUnit!
+  points: Int!
+  userId: String!
+}
+
+input CreateFeedbackInput {
+  comment: String
+  orderId: String
+  productId: String
+  rating: Int!
+  sellerId: String
+  type: FeedbackType!
+}
+
+input CreateFlashInput {
+  banner: String
+  description: String!
+  endDate: DateTime!
+  isActive: Boolean
+  isFeatured: Boolean
+  name: String!
+  startDate: DateTime!
+}
+
+input CreateMainCategoryInput {
+  description: String
+  image: String
+  isActive: Boolean = true
+  name: String!
+  order: Float = 0
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input CreateOrderInput {
+  billingAddressId: String
+  couponCode: String
+  note: String
+  paymentMethod: String!
+  products: [OrderProductInput!]!
+  shippingAddressId: String!
+}
+
+input CreatePointTransactionInput {
+  active: Boolean = true
+  description: String
+  expiresAt: DateTime
+  monetaryValue: Float
+  orderId: String
+  points: Int!
+  type: String!
+  userId: String!
+}
+
+input CreateProductInput {
+  brandId: String
+  categoryId: String!
+  description: String
+  disclaimer: String
+  discount: Float
+  discountUnit: String
+  estimateDelivery: String
+  flashId: String
+  images: [String!]!
+  isFeatured: Boolean
+
+  """For backward compatibility"""
+  mainCategoryId: String
+  minPurchase: Int
+  name: String!
+  price: Float!
+  quantity: Int!
+  refundAble: Boolean
+  sellerId: String
+  shopId: String
+  showStock: Boolean
+  specification: String
+
+  """For backward compatibility"""
+  subCategoryIds: [String!]
+  tagIds: [String!]
+  tax: Float
+  taxUnit: String
+  unit: String
+  visibility: Boolean
+  warranty: String
+  youtubeLink: String
+}
+
+input CreateSellerInput {
+  address: String
+  banner: String
+  description: String!
+  email: String!
+  isFeatured: Boolean
+  isVerified: Boolean
+  logo: String
+  name: String!
+  phone: String
+  userId: String
+}
+
+input CreateShippingMethodInput {
+  description: String
+  estimatedDeliveryDays: Float
+  isActive: Boolean = true
+  maximumOrderAmount: Float
+  minimumOrderAmount: Float
+  name: String!
+  price: Float!
+  shippingZoneId: String!
+}
+
+input CreateShippingZoneInput {
+  cities: [String!]
+  countries: [String!]!
+  isActive: Boolean = true
+  name: String!
+  states: [String!]
+  zipCodes: [String!]
+}
+
+input CreateShopInput {
+  address: String
+  banner: String
+  description: String!
+  email: String
+  isFeatured: Boolean
+  logo: String
+  name: String!
+  phone: String
+  sellerId: String!
+  website: String
+}
+
+input CreateStatusTrackingInput {
+  comment: String
+  entityId: String!
+  entityType: String!
+  fromStatus: String!
+  ipAddress: String
+  metadata: JSON
+  orderId: String
+  paymentId: String
+  productId: String
+  toStatus: String!
+  userAgent: String
+}
+
+input CreateSubCategoryInput {
+  categoryId: String!
+  description: String
+  image: String
+  isActive: Boolean = true
+  name: String!
+  order: Float = 0
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input CreateTagInput {
+  description: String
+  icon: String
+  isFeatured: Boolean
+  name: String!
+}
+
+input CreateUserInput {
+  avatar: String
+  email: String
+  isVerified: Boolean
+  name: String!
+  password: String!
+  phone: String!
+  role: String
+}
+
+input CreateWebhookInput {
+  events: [String!]!
+  name: String!
+  url: String!
+}
+
+"""Customer analytics"""
+type CustomerAnalytics {
+  activeCustomers: Float!
+  averageLifetimeValue: Float!
+  customerRetentionRate: Float
+  newCustomers: Float!
+  totalCustomers: Float!
+}
+
+"""Dashboard summary analytics"""
+type DashboardAnalytics {
+  averageOrderValue: Float!
+  conversionRate: Float
+  orderStatusDistribution: [OrderStatusAnalytics!]!
+  salesByPaymentMethod: [PaymentMethodAnalytics!]!
+  salesByPeriod: [SalesSummary!]!
+  topCategories: [CategoryAnalytics!]!
+  topProducts: [ProductAnalytics!]!
+  totalCustomers: Int!
+  totalOrders: Int!
+  totalProducts: Int!
+  totalRevenue: Float!
+}
+
+input DateRangeInput {
+  endDate: DateTime!
+  startDate: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type DeleteBrandResponse {
+  message: String!
+  success: Boolean!
+}
+
+"""The unit of discount (FLAT or PERCENT)"""
+enum DiscountUnit {
+  FLAT
+  PERCENT
+}
+
+type Feedback {
+  comment: String
+  createdAt: DateTime!
+  id: ID!
+  orderId: String
+  productId: String
+  rating: Int!
+  sellerId: String
+  status: FeedbackStatus!
+  type: FeedbackType!
+  updatedAt: DateTime!
+  userId: String!
+}
+
+type FeedbackPagination {
+  averageRating: Float
+  feedbacks: [Feedback!]!
+  pageCount: Int!
+  totalCount: Int!
+}
+
+"""The status of feedback"""
+enum FeedbackStatus {
+  APPROVED
+  PENDING
+  REJECTED
+}
+
+type FeedbackSummary {
+  averageRating: Float!
+  fiveStars: Int!
+  fourStars: Int!
+  oneStar: Int!
+  threeStars: Int!
+  totalFeedbacks: Int!
+  twoStars: Int!
+}
+
+"""The type of feedback"""
+enum FeedbackType {
+  GENERAL
+  ORDER
+  PRODUCT
+  SELLER
+}
+
+type Flash {
+  createdAt: DateTime!
+  endDate: DateTime!
+  id: String!
+  products: [Product!]
+  slug: String!
+  startDate: DateTime!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type FlashMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+type GenericResponse {
+  message: String!
+  success: Boolean!
+}
+
+type GetAddresses {
+  addresses: [Address!]!
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  totalCount: Float!
+}
+
+type GetAttributeValues {
+  attributeValues: [AttributeValue!]!
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  totalCount: Float!
+}
+
+type GetAttributes {
+  attributes: [Attribute!]!
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  totalCount: Float!
+}
+
+type GetBrands {
+  meta: BrandMeta!
+  results: [Brand!]!
+}
+
+type GetCarts {
+  meta: CartMeta!
+  results: [Cart!]!
+}
+
+type GetCategories {
+  meta: CategoryMeta
+  results: [Category!]
+}
+
+type GetFlashes {
+  meta: FlashMeta
+  results: [Flash!]
+}
+
+type GetMainCategories {
+  meta: CategoryMeta
+  results: [MainCategory!]
+}
+
+type GetOrders {
+  meta: OrderMeta
+  results: [Order!]
+}
+
+type GetPointTransactions {
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  totalCount: Float!
+  transactions: [PointTransaction!]!
+}
+
+type GetProductSellers {
+  meta: SellerMetaData
+  results: [Seller!]
+}
+
+type GetShippingMethods {
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  shippingMethods: [ShippingMethod!]!
+  totalCount: Float!
+}
+
+type GetShippingZones {
+  page: Float!
+  pageCount: Float!
+  pageSize: Float!
+  shippingZones: [ShippingZone!]!
+  totalCount: Float!
+}
+
+type GetShops {
+  meta: ShopMeta
+  results: [Shop!]
+}
+
+type GetSubCategories {
+  meta: CategoryMeta
+  results: [SubCategory!]
+}
+
+type GetTags {
+  meta: TagMeta
+  results: [Tag!]
+}
+
+type GetUsers {
+  meta: UserMeta
+  results: [User!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input LoginInput {
+  password: String!
+  phone: String!
+}
+
+"""Represents a "main category" (top level with no parent)"""
+type MainCategory {
+  categories: [Category!]
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean!
+  name: String!
+  order: Float!
+  parent: Category
+  parentId: String
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String!
+  subcategories: [Category!]
+  updatedAt: DateTime!
+}
+
+type Mutation {
+  addToCart(addToCartInput: AddToCartInput!): Cart!
+  approveProduct(id: String!): Product!
+  awardPoints(description: String, orderId: String, points: Float!, userId: String!): PointTransaction!
+  banUser(id: String!): User!
+  clearCart(clearCartInput: ClearCartInput!): Cart!
+  createAddress(createAddressInput: CreateAddressInput!): Address!
+  createApiKey(createApiKeyInput: CreateApiKeyInput!): ApiKeyWithSecret!
+  createAttribute(createAttributeInput: CreateAttributeInput!): Attribute!
+  createAttributeValue(createAttributeValueInput: CreateAttributeValueInput!): AttributeValue!
+  createBrand(createBrandInput: CreateBrandInput!): Brand!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  createCoupon(createCouponInput: CreateCouponInput!): Coupon!
+  createCouponForUser(createCouponUserInput: CreateCouponUserInput!): CouponUser!
+  createFeedback(createFeedbackInput: CreateFeedbackInput!): Feedback!
+  createFlash(createFlashInput: CreateFlashInput!): Flash!
+  createMainCategory(createMainCategoryInput: CreateMainCategoryInput!): MainCategory!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  createPointTransaction(createPointTransactionInput: CreatePointTransactionInput!): PointTransaction!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  createSeller(createSellerInput: CreateSellerInput!): Seller!
+  createShippingMethod(createShippingMethodInput: CreateShippingMethodInput!): ShippingMethod!
+  createShippingZone(createShippingZoneInput: CreateShippingZoneInput!): ShippingZone!
+  createShop(createShopInput: CreateShopInput!): Shop!
+  createSubCategory(createSubCategoryInput: CreateSubCategoryInput!): SubCategory!
+  createTag(createTagInput: CreateTagInput!): Tag!
+  createUser(createUserInput: CreateUserInput!): User!
+  createWebhook(createWebhookInput: CreateWebhookInput!): WebhookWithSecret!
+  deleteAddress(id: String!): Address!
+  deleteApiKey(id: String!): Boolean!
+  deleteAttribute(id: String!): Attribute!
+  deleteAttributeValue(id: String!): AttributeValue!
+  deleteBrand(id: String!): DeleteBrandResponse!
+  deleteCategory(id: String!): SuccessInfo!
+  deleteCoupon(id: String!): GenericResponse!
+  deleteFeedback(id: String!): Boolean!
+  deleteFlash(id: String!): SuccessInfo!
+  deleteMainCategory(id: String!): SuccessInfo!
+  deletePointTransaction(id: String!): PointTransaction!
+  deleteProduct(id: String!): SuccessInfo!
+  deleteSeller(id: String!): SuccessInfo!
+  deleteShippingMethod(id: String!): ShippingMethod!
+  deleteShippingZone(id: String!): ShippingZone!
+  deleteShop(id: String!): SuccessInfo!
+  deleteSubCategory(id: String!): SuccessInfo!
+  deleteTag(id: String!): SuccessInfo!
+  deleteUser(id: String!): SuccessInfo!
+  deleteWebhook(id: String!): Boolean!
+  login(loginInput: LoginInput!): AuthResponse!
+  redeemPoints(redeemPointsInput: RedeemPointsInput!): PointTransaction!
+  refreshApiKey(id: String!): ApiKeyWithSecret!
+  refreshWebhookSecret(id: String!): WebhookWithSecret!
+  removeFromCart(removeFromCartInput: RemoveFromCartInput!): Cart!
+  signup(signupInput: SignupInput!): AuthResponse!
+  trackStatusChange(createStatusTrackingInput: CreateStatusTrackingInput!): StatusTracking!
+  triggerWebhook(triggerWebhookInput: TriggerWebhookInput!): Boolean!
+  unbanUser(id: String!): User!
+  updateAddress(updateAddressInput: UpdateAddressInput!): Address!
+  updateApiKey(updateApiKeyInput: UpdateApiKeyInput!): ApiKey!
+  updateAttribute(updateAttributeInput: UpdateAttributeInput!): Attribute!
+  updateAttributeValue(updateAttributeValueInput: UpdateAttributeValueInput!): AttributeValue!
+  updateBrand(updateBrandInput: UpdateBrandInput!): Brand!
+  updateCart(updateCartInput: UpdateCartInput!): Cart!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  updateCoupon(updateCouponInput: UpdateCouponInput!): Coupon!
+  updateFeedback(updateFeedbackInput: UpdateFeedbackInput!): Feedback!
+  updateFeedbackStatus(updateFeedbackStatusInput: UpdateFeedbackStatusInput!): Feedback!
+  updateFlash(updateFlashInput: UpdateFlashInput!): Flash!
+  updateMainCategory(updateMainCategoryInput: UpdateMainCategoryInput!): MainCategory!
+  updateOrderSellerStatus(id: String!, updateOrderStatusInput: UpdateOrderStatusInput!): OrderSeller!
+  updateOrderStatus(updateOrderStatusInput: UpdateOrderStatusInput!): Order!
+  updatePaymentStatus(id: String!, paymentStatus: Boolean!): Order!
+  updatePointTransaction(updatePointTransactionInput: UpdatePointTransactionInput!): PointTransaction!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  updateSeller(updateSellerInput: UpdateSellerInput!): Seller!
+  updateShippingMethod(updateShippingMethodInput: UpdateShippingMethodInput!): ShippingMethod!
+  updateShippingZone(updateShippingZoneInput: UpdateShippingZoneInput!): ShippingZone!
+  updateShop(updateShopInput: UpdateShopInput!): Shop!
+  updateSubCategory(updateSubCategoryInput: UpdateSubCategoryInput!): SubCategory!
+  updateTag(updateTagInput: UpdateTagInput!): Tag!
+  updateWebhook(updateWebhookInput: UpdateWebhookInput!): Webhook!
+}
+
+type Order {
+  address: String
+  billingAddressId: String
+  couponDiscount: Float!
+  createdAt: DateTime!
+  estimateDelivery: String
+  id: String!
+  isPaid: Boolean!
+  note: String
+  orderItems: [OrderItem!]
+  orderSellers: [OrderSeller!]
+  payment: JSON
+  paymentStatus: String!
+  shippingAddressId: String
+  shippingCount: Float!
+  shippingFees: Float!
+  status: OrderStatus!
+  subTotal: Float!
+  total: Float!
+  trackingNumber: String
+  updatedAt: DateTime!
+  user: User!
+  userId: String!
+}
+
+input OrderAttributeInput {
+  id: String!
+  name: String!
+  variant: String!
+}
+
+input OrderByInput {
+  direction: OrderDirection! = ASC
+  field: String!
+}
+
+"""Sorting direction"""
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+type OrderItem {
+  createdAt: DateTime!
+  id: String!
+  order: Order!
+  orderId: String!
+  price: Float!
+  product: Product!
+  productId: String!
+  quantity: Int!
+  updatedAt: DateTime!
+}
+
+type OrderMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+type OrderProduct {
+  amount: Float!
+  attributes: JSON
+  createdAt: DateTime!
+  id: String!
+  orderSeller: OrderSeller
+  orderSellerId: String
+  product: Product!
+  productId: String!
+  quantity: Int!
+  tax: Float!
+  updatedAt: DateTime!
+}
+
+input OrderProductInput {
+  attributes: [OrderAttributeInput!]
+  productId: String!
+  quantity: Float!
+}
+
+type OrderSeller {
+  cancelBy: CancelBy
+  createdAt: DateTime!
+  id: String!
+  order: Order!
+  orderId: String!
+  price: Float!
+  products: [OrderProduct!]!
+  seller: Seller!
+  sellerId: String!
+  shopName: String!
+  status: OrderStatus!
+  updatedAt: DateTime!
+}
+
+"""The status of an order"""
+enum OrderStatus {
+  CONFIRMED
+  DELIVERED
+  ONTHEWAY
+  PENDING
+  PICKEDUP
+}
+
+"""Order status distribution"""
+type OrderStatusAnalytics {
+  count: Int!
+  percentage: Float!
+  status: String!
+}
+
+type PaginationMeta {
+  currentPage: Int!
+  pageCount: Int!
+  perPage: Int!
+  totalCount: Int!
+}
+
+"""Sales by payment method"""
+type PaymentMethodAnalytics {
+  count: Int!
+  method: String!
+  percentage: Float!
+  revenue: Float!
+}
+
+type PointBalance {
+  availablePoints: Int!
+  expiredPoints: Int!
+  monetaryValue: Float!
+  pendingPoints: Int!
+  redeemedPoints: Int!
+  totalPoints: Int!
+}
+
+type PointTransaction {
+  active: Boolean!
+  createdAt: DateTime!
+  description: String
+  expiresAt: DateTime
+  id: ID!
+  monetaryValue: Float
+  order: Order
+  orderId: String
+  points: Int!
+  type: String!
+  updatedAt: DateTime!
+  user: User
+  userId: String!
+}
+
+type Product {
+  attributes: [ProductAttribute!]
+  brand: Brand
+  brandId: String
+  category: Category
+  categoryId: String
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  disclaimer: String
+  discount: Float!
+  discountUnit: String
+  estimateDelivery: String
+  flash: Flash
+  flashId: String
+  id: String!
+  images: [ProductImage!]!
+  isApproved: Boolean!
+  isFeatured: Boolean!
+  isHide: Boolean!
+  meta: ProductMeta
+  minPurchase: Int
+  name: String!
+  price: Float!
+  quantity: Int!
+  refundAble: Boolean
+  reviewRating: Float
+  salesCount: Int!
+  sellerId: String
+  shop: Shop
+  shopId: String
+  showStock: Boolean
+  slug: String!
+  specification: String
+  stock: Int!
+  tags: [Tag!]
+  tax: Float!
+  taxUnit: String
+  totalPrice: Float
+  totalReviews: Int!
+  unit: String
+  updatedAt: DateTime!
+  viewCount: Int!
+  visibility: Boolean
+  warranty: String
+  youtubeLink: String
+}
+
+"""Product performance analytics"""
+type ProductAnalytics {
+  conversionRate: Float
+  productId: String!
+  productName: String!
+  revenue: Float!
+  unitsSold: Int!
+  views: Int
+}
+
+type ProductAttribute {
+  attributeValueId: String
+  color: String
+  createdAt: DateTime!
+  id: String!
+  product: Product
+  productId: String!
+  size: String
+  updatedAt: DateTime!
+}
+
+type ProductImage {
+  alt: String
+  createdAt: DateTime!
+  id: String!
+  order: Int!
+  productId: String!
+  updatedAt: DateTime!
+  url: String!
+}
+
+type ProductMeta {
+  createdAt: DateTime!
+  description: String
+  id: String!
+  product: Product
+  productId: String!
+  title: String
+  updatedAt: DateTime!
+}
+
+type Query {
+  activeFlashes: [Flash!]!
+  brand(id: String!): Brand!
+  brands(searchInput: SearchInput!): GetBrands!
+  calculateAverageTimeBetweenStatuses(endDate: DateTime, entityType: String!, fromStatus: String!, startDate: DateTime, toStatus: String!): String!
+  featuredBrands: [Brand!]!
+  featuredProducts: [Product!]!
+  featuredShops: [Shop!]!
+  flash(id: String!): Flash!
+  flashes(searchInput: SearchInput!): GetFlashes!
+  getAddressById(id: String!): Address!
+  getAllFeedback(searchInput: SearchFeedbackInput!): FeedbackPagination!
+  getApiKeyById(id: String!): ApiKey!
+  getAttributeById(id: String!): Attribute!
+  getAttributeValueById(id: String!): AttributeValue!
+  getAttributeValues(searchInput: SearchAttributeValueInput!): GetAttributeValues!
+  getAttributes(searchInput: SearchAttributeInput!): GetAttributes!
+  getBrandById(id: String!): Brand!
+  getBrandBySlug(slug: String!): Brand!
+  getBrands(searchInput: SearchBrandInput!): GetBrands!
+  getCartItemById(id: String!): Cart!
+  getCartSummary: CartSummary!
+  getCategories(searchInput: SearchInput!): GetCategories!
+  getCategoriesByMainCategoryId(mainCategoryId: String!, searchInput: SearchInput): GetCategories!
+  getCategoryAnalytics(categoryId: String!, query: AnalyticsQueryInput!): CategoryAnalytics!
+  getCategoryById(id: String!): Category!
+  getCategoryBySlug(slug: String!): Category!
+  getCouponById(id: String!): Coupon!
+  getCoupons(searchInput: SearchCouponInput!): CouponPaginatedResponse!
+  getCustomerAnalytics(query: AnalyticsQueryInput!): CustomerAnalytics!
+  getDashboardAnalytics(query: AnalyticsQueryInput!): DashboardAnalytics!
+  getDefaultAddress: Address!
+  getEntityCurrentStatus(entityId: String!, entityType: String!): String
+  getEntityStatusHistory(entityId: String!, entityType: String!): [StatusTracking!]!
+  getEntityStatusTimeline(entityId: String!, entityType: String!): [StatusTracking!]!
+  getFeaturedBrands: [Brand!]!
+  getFeaturedCategories: [Category!]!
+  getFeaturedMainCategories: [MainCategory!]!
+  getFeaturedSubCategories: [SubCategory!]!
+  getFeedbackById(id: String!): Feedback!
+  getMainCategories(searchInput: SearchInput!): GetMainCategories!
+  getMainCategoryById(id: String!): MainCategory!
+  getMainCategoryBySlug(slug: String!): MainCategory!
+  getMe: User!
+  getMyAddresses(searchInput: SearchAddressInput!): GetAddresses!
+  getMyApiKeys(searchInput: SearchApiKeyInput!): ApiKeyPagination!
+  getMyCart(searchInput: SearchCartInput!): GetCarts!
+  getMyCoupons(searchInput: SearchCouponUserInput!): CouponUserPaginatedResponse!
+  getMyFeedback(searchInput: SearchFeedbackInput!): FeedbackPagination!
+  getMyOrders(searchInput: SearchOrderInput!): GetOrders!
+  getMyPointBalance: PointBalance!
+  getMyPointTransactions(searchInput: SearchPointTransactionInput!): GetPointTransactions!
+  getMyWebhooks(searchInput: SearchWebhookInput!): WebhookPagination!
+  getOrderById(id: String!): Order!
+  getOrderByOrderId(orderId: String!): Order!
+  getOrders(searchInput: SearchOrderInput!): GetOrders!
+  getPointTransactionById(id: String!): PointTransaction!
+  getPointTransactions(searchInput: SearchPointTransactionInput!): GetPointTransactions!
+  getProductAnalytics(productId: String!, query: AnalyticsQueryInput!): ProductAnalytics!
+  getProductFeedback(productId: String!, searchInput: SearchFeedbackInput!): FeedbackPagination!
+  getProductFeedbackSummary(productId: String!): FeedbackSummary!
+  getSellerFeedback(searchInput: SearchFeedbackInput!, sellerId: String!): FeedbackPagination!
+  getSellerFeedbackSummary(sellerId: String!): FeedbackSummary!
+  getSellerOrders(searchInput: SearchOrderInput!): GetOrders!
+  getShippingMethodById(id: String!): ShippingMethod!
+  getShippingMethods(searchInput: SearchShippingMethodInput!): GetShippingMethods!
+  getShippingMethodsForLocation(city: String, country: String!, orderAmount: Float, state: String, zipCode: String): [ShippingMethod!]!
+  getShippingZoneById(id: String!): ShippingZone!
+  getShippingZones(searchInput: SearchShippingZoneInput!): GetShippingZones!
+  getStatusTrackingHistory(searchInput: SearchStatusTrackingInput!): StatusTrackingPagination!
+  getSubCategories(searchInput: SearchInput!): GetSubCategories!
+  getSubCategoriesByCategoryId(categoryId: String!, searchInput: SearchInput): GetSubCategories!
+  getSubCategoryById(id: String!): SubCategory!
+  getSubCategoryBySlug(slug: String!): SubCategory!
+  getUserById(id: String!): User!
+  getUserCoupons(searchInput: SearchCouponUserInput!): CouponUserPaginatedResponse!
+  getUserPointBalance(userId: String!): PointBalance!
+  getUsers(searchInput: SearchInput!): GetUsers!
+  getWebhookById(id: String!): Webhook!
+  getWebhookLogs(searchInput: SearchWebhookLogInput!): WebhookLogPagination!
+  hasSubmittedFeedback(entityId: String!, type: FeedbackType!): Boolean!
+  product(id: String!): Product!
+  productBySlug(slug: String!): Product!
+  products(searchInput: SearchProductInput!): [Product!]!
+  seller(id: String!): Seller!
+  sellers(searchInput: SearchInput!): GetProductSellers!
+  shop(id: String!): Shop!
+  shops(searchInput: SearchInput!): GetShops!
+  tag(id: String!): Tag!
+  tags(searchInput: SearchInput!): GetTags!
+  verifiedSellers: [Seller!]!
+  verifyCoupon(verifyCouponInput: VerifyCouponInput!): CouponVerificationResult!
+}
+
+input RedeemPointsInput {
+  description: String
+  orderId: String
+  points: Int!
+}
+
+input RemoveFromCartInput {
+  id: String!
+}
+
+"""User role enumeration"""
+enum Role {
+  ADMIN
+  SELLER
+  STAFF
+  USER
+}
+
+"""Sales summary by time period"""
+type SalesSummary {
+  averageOrderValue: Float!
+  orderCount: Int!
+  period: String!
+  revenue: Float!
+}
+
+input SearchAddressInput {
+  limit: Float = 10
+  onlyIsDefault: Boolean
+  page: Float = 1
+  search: String
+  sortBy: String = "createdAt"
+  sortDirection: String = "desc"
+}
+
+input SearchApiKeyInput {
+  expired: Boolean
+  isActive: Boolean
+  limit: Int! = 20
+  page: Int! = 1
+  permission: String
+  search: String
+}
+
+input SearchAttributeInput {
+  limit: Int! = 10
+  page: Int! = 1
+  search: String
+  sortBy: String! = "createdAt"
+  sortDirection: SortDirection! = DESC
+}
+
+input SearchAttributeValueInput {
+  attributeId: String
+  limit: Int! = 10
+  page: Int! = 1
+  search: String
+  sortBy: String! = "createdAt"
+  sortDirection: SortDirection! = DESC
+}
+
+input SearchBrandInput {
+  isFeatured: Boolean
+  limit: Int = 10
+  page: Int = 1
+  search: String
+  sortBy: String = "createdAt"
+  sortDirection: String = "desc"
+}
+
+input SearchCartInput {
+  limit: Int! = 10
+  page: Int! = 1
+  productId: String
+  sellerId: String
+  sortBy: String
+  sortOrder: String
+}
+
+input SearchCouponInput {
+  active: Boolean
+  limit: Int = 10
+  page: Int = 1
+  search: String
+  sortBy: String = "createdAt"
+  sortDirection: String = "desc"
+}
+
+input SearchCouponUserInput {
+  limit: Int = 10
+  page: Int = 1
+  search: String
+  sortBy: String = "createdAt"
+  sortDirection: String = "desc"
+  used: Boolean
+  userId: String
+}
+
+input SearchFeedbackInput {
+  limit: Int! = 20
+  orderId: String
+  page: Int! = 1
+  productId: String
+  rating: Int
+  search: String
+  sellerId: String
+  status: FeedbackStatus
+  type: FeedbackType
+  userId: String
+}
+
+input SearchInput {
+  limit: Int = 10
+  orderBy: OrderByInput
+  page: Int = 1
+  search: String
+  sortBy: SortField = CREATED_AT
+  sortDirection: SortDirection = DESC
+}
+
+input SearchOrderInput {
+  limit: Float = 10
+  orderBy: OrderByInput
+  page: Float = 1
+  paymentStatus: Boolean
+  search: String
+
+  """Legacy field. Use SortField/OrderSortField types instead."""
+  sortBy: String
+  sortDirection: SortDirection = DESC
+  sortOrder: String = "desc"
+  status: OrderStatus
+}
+
+input SearchPointTransactionInput {
+  active: Boolean
+  endDate: DateTime
+  limit: Int! = 10
+  orderBy: OrderByInput
+  orderId: String
+  page: Int! = 1
+  sortBy: String! = "createdAt"
+  sortDirection: SortDirection! = DESC
+  startDate: DateTime
+  type: String
+  userId: String
+}
+
+input SearchProductInput {
+  brandId: String
+  categoryId: String
+  flashId: String
+  hasDiscount: Boolean
+  isFeatured: Boolean
+  limit: Int = 10
+
+  """For backward compatibility"""
+  mainCategoryId: String
+  maxPrice: Float
+  minPrice: Float
+  minRating: Float
+  orderBy: OrderByInput
+  page: Int = 1
+  productSortBy: String
+  search: String
+  sellerId: String
+  shopId: String
+  sortDirection: SortDirection = DESC
+  standardSortBy: SortField = CREATED_AT
+
+  """For backward compatibility"""
+  subCategoryIds: [String!]
+  tagIds: [String!]
+}
+
+input SearchShippingMethodInput {
+  isActive: Boolean
+  limit: Int! = 10
+  maxPrice: Float
+  minPrice: Float
+  page: Int! = 1
+  search: String
+  shippingZoneId: String
+  sortBy: String! = "createdAt"
+  sortDirection: SortDirection! = DESC
+}
+
+input SearchShippingZoneInput {
+  country: String
+  isActive: Boolean
+  limit: Int! = 10
+  page: Int! = 1
+  search: String
+  sortBy: String! = "createdAt"
+  sortDirection: SortDirection! = DESC
+}
+
+input SearchStatusTrackingInput {
+  endDate: DateTime
+  entityId: String
+  entityType: String
+  fromStatus: String
+  limit: Int = 10
+  orderBy: StatusTrackingOrderBy = CREATED_AT_DESC
+  orderByInput: OrderByInput
+  orderId: String
+  page: Int = 1
+  paymentId: String
+  performedById: String
+  productId: String
+  startDate: DateTime
+  toStatus: String
+}
+
+input SearchWebhookInput {
+  event: String
+  isActive: Boolean
+  limit: Int! = 20
+  page: Int! = 1
+  search: String
+}
+
+input SearchWebhookLogInput {
+  event: String
+  limit: Int! = 20
+  page: Int! = 1
+  success: Boolean
+  webhookId: String!
+}
+
+type Seller {
+  address: String!
+  bank: Bank
+  banner: String
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  isBanned: Boolean!
+  isVerified: Boolean!
+  logo: String
+  metaDescription: String
+  metaTitle: String
+  phone: String!
+  products: [Product!]
+  ratingCount: Float!
+  shopName: String!
+  totalRating: Float!
+  updatedAt: DateTime!
+  user: User!
+  userId: String!
+}
+
+type SellerMetaData {
+  currentPage: Float!
+  itemCount: Float!
+  itemsPerPage: Float!
+  totalItems: Float!
+  totalPages: Float!
+}
+
+type ShippingMethod {
+  createdAt: DateTime!
+  description: String
+  estimatedDeliveryDays: Float
+  id: ID!
+  isActive: Boolean!
+  maximumOrderAmount: Float
+  minimumOrderAmount: Float
+  name: String!
+  price: Float!
+  shippingZone: ShippingZone
+  shippingZoneId: String!
+  updatedAt: DateTime!
+}
+
+type ShippingZone {
+  cities: [String!]
+  countries: [String!]!
+  createdAt: DateTime!
+  id: ID!
+  isActive: Boolean!
+  name: String!
+  shippingMethods: [ShippingMethod!]
+  states: [String!]
+  updatedAt: DateTime!
+  zipCodes: [String!]
+}
+
+type Shop {
+  banner: String
+  createdAt: DateTime!
+  description: String
+  id: String!
+  isFeatured: Boolean!
+  isVerified: Boolean!
+  logo: String
+  name: String!
+  owner: User
+  ownerId: String!
+  products: [Product!]
+  updatedAt: DateTime!
+}
+
+type ShopMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+input SignupInput {
+  email: String!
+  name: String!
+  password: String!
+  phone: String!
+}
+
+"""Sort direction for queries (ascending or descending)"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Fields that can be used for sorting"""
+enum SortField {
+  CREATED_AT
+  EMAIL
+  ID
+  NAME
+  ORDER_NUMBER
+  PRICE
+  QUANTITY
+  STATUS
+  TITLE
+  UPDATED_AT
+  USERNAME
+}
+
+type StatusTracking {
+  comment: String
+  entityId: String!
+  entityType: String!
+  fromStatus: String!
+  id: ID!
+  ipAddress: String
+  metadata: JSON
+  orderId: String
+  paymentId: String
+  performedAt: DateTime!
+  performedById: String!
+  productId: String
+  toStatus: String!
+  userAgent: String
+}
+
+"""Ordering options for status tracking records"""
+enum StatusTrackingOrderBy {
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  ENTITY_TYPE_ASC
+  ENTITY_TYPE_DESC
+}
+
+type StatusTrackingPagination {
+  items: [StatusTracking!]!
+  pageCount: Int!
+  totalCount: Int!
+}
+
+"""
+Represents a "sub-category" (third level category with both parent and grandparent)
+"""
+type SubCategory {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  grandparent: Category
+  id: String!
+  image: String
+  isActive: Boolean!
+  name: String!
+  order: Float!
+  parent: Category!
+  parentId: String
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String!
+  subcategories: [Category!]
+  updatedAt: DateTime!
+}
+
+type SuccessInfo {
+  data: String
+  message: String!
+  success: Boolean
+}
+
+type Tag {
+  createdAt: DateTime!
+  description: String
+  id: String!
+  name: String!
+  products: [Product!]
+  slug: String!
+  updatedAt: DateTime!
+}
+
+type TagMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+"""Time period options for analytics"""
+enum TimePeriod {
+  CUSTOM
+  DAY
+  MONTH
+  WEEK
+  YEAR
+}
+
+input TriggerWebhookInput {
+  event: String!
+  payload: String!
+}
+
+input UpdateAddressInput {
+  address: String
+  area: String
+  city: String
+  country: String
+  gender: String
+  id: String!
+  isDefault: Boolean
+  name: String
+  phone: String
+  postal: String
+}
+
+input UpdateApiKeyInput {
+  expiresAt: DateTime
+  id: String!
+  isActive: Boolean
+  name: String
+  permissions: [String!]
+}
+
+input UpdateAttributeInput {
+  description: String
+  id: String!
+  name: String
+}
+
+input UpdateAttributeValueInput {
+  attributeId: String
+  id: String!
+  value: String
+}
+
+input UpdateBrandInput {
+  description: String
+  id: String!
+  isFeatured: Boolean
+  logo: String
+  name: String
+  website: String
+}
+
+input UpdateCartInput {
+  attributes: String
+  id: String!
+  reserved: Int
+}
+
+input UpdateCategoryInput {
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean
+  mainCategoryId: String
+  name: String
+  order: Float
+  parentId: String
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input UpdateCouponInput {
+  code: String
+  discount: Float
+  discountUnit: DiscountUnit
+  expiresAt: DateTime
+  id: String!
+  minimumPurchase: Float
+  name: String
+}
+
+input UpdateFeedbackInput {
+  comment: String
+  id: String!
+  rating: Int
+}
+
+input UpdateFeedbackStatusInput {
+  id: String!
+  rejectionReason: String
+  status: FeedbackStatus!
+}
+
+input UpdateFlashInput {
+  banner: String
+  description: String
+  endDate: DateTime
+  id: String!
+  isActive: Boolean
+  isFeatured: Boolean
+  name: String
+  startDate: DateTime
+}
+
+input UpdateMainCategoryInput {
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean
+  name: String
+  order: Float
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input UpdateOrderStatusInput {
+  cancelBy: CancelBy
+  id: String!
+  status: OrderStatus!
+}
+
+input UpdatePointTransactionInput {
+  active: Boolean
+  description: String
+  expiresAt: DateTime
+  id: String!
+  monetaryValue: Float
+  points: Int
+  type: String
+}
+
+input UpdateProductInput {
+  brandId: String
+  categoryId: String
+  description: String
+  disclaimer: String
+  discount: Float
+  discountUnit: String
+  estimateDelivery: String
+  flashId: String
+  id: String!
+  images: [String!]
+  isApproved: Boolean
+  isFeatured: Boolean
+  isHide: Boolean
+
+  """For backward compatibility"""
+  mainCategoryId: String
+  minPurchase: Int
+  name: String
+  price: Float
+  quantity: Int
+  refundAble: Boolean
+  sellerId: String
+  shopId: String
+  showStock: Boolean
+  specification: String
+
+  """For backward compatibility"""
+  subCategoryIds: [String!]
+  tagIds: [String!]
+  tax: Float
+  taxUnit: String
+  unit: String
+  visibility: Boolean
+  warranty: String
+  youtubeLink: String
+}
+
+input UpdateSellerInput {
+  address: String
+  banner: String
+  description: String
+  email: String
+  id: String!
+  isFeatured: Boolean
+  isVerified: Boolean
+  logo: String
+  name: String
+  phone: String
+}
+
+input UpdateShippingMethodInput {
+  description: String
+  estimatedDeliveryDays: Float
+  id: String!
+  isActive: Boolean
+  maximumOrderAmount: Float
+  minimumOrderAmount: Float
+  name: String
+  price: Float
+  shippingZoneId: String
+}
+
+input UpdateShippingZoneInput {
+  cities: [String!]
+  countries: [String!]
+  id: String!
+  isActive: Boolean
+  name: String
+  states: [String!]
+  zipCodes: [String!]
+}
+
+input UpdateShopInput {
+  address: String
+  banner: String
+  description: String
+  email: String
+  id: String!
+  isFeatured: Boolean
+  logo: String
+  name: String
+  phone: String
+  website: String
+}
+
+input UpdateSubCategoryInput {
+  categoryId: String
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean
+  name: String
+  order: Float
+  seoDescription: String
+  seoKeywords: String
+  seoTitle: String
+  slug: String
+}
+
+input UpdateTagInput {
+  description: String
+  icon: String
+  id: String!
+  isFeatured: Boolean
+  name: String
+}
+
+input UpdateWebhookInput {
+  events: [String!]
+  id: String!
+  isActive: Boolean
+  name: String
+  url: String
+}
+
+type UsedCoupon {
+  coupon: Coupon
+  couponId: String!
+  createdAt: DateTime!
+  id: String!
+  updatedAt: DateTime!
+  used: Boolean!
+  user: User
+  userId: String!
+}
+
+type User {
+  avatarUrl: String
+  createdAt: DateTime!
+  email: String!
+  firstName: String
+  id: String!
+  isActive: Boolean!
+  isVerified: Boolean!
+  lastName: String
+  name: String!
+  phone: String
+  role: Role!
+  updatedAt: DateTime!
+}
+
+type UserMeta {
+  currentPage: Float
+  itemCount: Float
+  itemsPerPage: Float
+  totalItems: Float
+  totalPages: Float
+}
+
+input VerifyCouponInput {
+  cartTotal: Float!
+  code: String!
+}
+
+type Webhook {
+  createdAt: DateTime!
+  events: [String!]!
+  failureCount: Int!
+  id: ID!
+  isActive: Boolean!
+  lastCalledAt: DateTime
+  lastFailedAt: DateTime
+  name: String!
+
+  """Secret key for signature verification (masked)"""
+  secretKey: String!
+  updatedAt: DateTime!
+  url: String!
+  userId: String!
+}
+
+type WebhookLog {
+  createdAt: DateTime!
+  error: String
+  event: String!
+  executionMs: Int
+  id: ID!
+  payload: String!
+  response: String
+  statusCode: Int
+  success: Boolean!
+  webhookId: String!
+}
+
+type WebhookLogPagination {
+  logs: [WebhookLog!]!
+  pageCount: Int!
+  totalCount: Int!
+}
+
+type WebhookPagination {
+  pageCount: Int!
+  totalCount: Int!
+  webhooks: [Webhook!]!
+}
+
+type WebhookWithSecret {
+  """Secret key, only shown once"""
+  secretKey: String!
+  webhook: Webhook!
+}

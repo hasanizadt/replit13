@@ -1,0 +1,10 @@
+export enum NotificationType {
+  SYSTEM = 'SYSTEM',
+  ORDER = 'ORDER',
+  PAYMENT = 'PAYMENT',
+  PRODUCT = 'PRODUCT',
+  SHIPPING = 'SHIPPING',
+  REFUND = 'REFUND',
+  PROMOTION = 'PROMOTION',
+  SECURITY = 'SECURITY',
+}
